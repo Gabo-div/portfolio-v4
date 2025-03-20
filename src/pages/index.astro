@@ -9,6 +9,7 @@ import Project4 from "@/assets/leif.png";
 
 import GitHub from "@/components/svg/github.astro";
 import LinkedIn from "@/components/svg/linkedin.astro";
+import Globe from "@/components/svg/globe.astro";
 import Badge from "@/components/badge.astro";
 
 const social = [
@@ -36,6 +37,8 @@ const education = [
 
 const projects = [
   {
+    github: "https://github.com/Gabo-div/uneg-sase-scrapping",
+    page: "https://uneg.vercel.app/",
     image: Project1,
     title:
       "Cliente Alternativo para el Sistema Estudiantil de la Universidad Nacional Experimental de Guayana",
@@ -44,6 +47,8 @@ const projects = [
     tags: ["TypeScript", "React", "TailwindCSS", "Tanstack Router", "Cheerio"],
   },
   {
+    github: "https://github.com/citiumdev/cudi",
+    page: "https://www.cudicoders.dev/",
     image: Project2,
     title: "Sistema Web de Gestión de Eventos para CUDI",
     description:
@@ -58,6 +63,8 @@ const projects = [
     ],
   },
   {
+    github: "https://github.com/Gabo-div/lite-builder",
+    page: "https://litebuilder.vercel.app/",
     image: Project3,
     title: "Aplicación Web para la creación de diagramas MER",
     description:
@@ -72,6 +79,8 @@ const projects = [
     ],
   },
   {
+    github: "https://github.com/Gabo-div/frontend-review-app",
+    page: null,
     image: Project4,
     title:
       "Aplicación Móvil Multiplataforma de Reseñas de Lugares en Ciudad Guayana",
@@ -212,6 +221,30 @@ const projects = [
               </div>
               <div class="flex flex-col p-8 space-y-4">
                 <h3 class="font-bold text-lg uppercase">{p.title}</h3>
+                <div class="flex items-center gap-4 w-full">
+                  {p.github ? (
+                    <a
+                      href={p.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="bg-zinc-100 text-zinc-950 font-bold rounded-full px-4 py-1 border border-zinc-800 hover:bg-zinc-100/60 transition-colors flex items-center gap-2"
+                    >
+                      <GitHub class="size-4 fill-zinc-950" />
+                      Ver en GitHub
+                    </a>
+                  ) : null}
+                  {p.page ? (
+                    <a
+                      href={p.page}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="bg-zinc-100 text-zinc-950 font-bold rounded-full px-4 py-1 border border-zinc-800 hover:bg-zinc-100/60 transition-colors flex items-center gap-2"
+                    >
+                      <Globe class="size-4" />
+                      Ver en la web
+                    </a>
+                  ) : null}
+                </div>
                 <p class="text-zinc-400">{p.description}</p>
                 <div class="flex gap-2 flex-wrap">
                   {p.tags.map((tag) => (
