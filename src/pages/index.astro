@@ -1,0 +1,229 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import Avatar from "@/assets/avatar.png";
+import Project1 from "@/assets/uneg.png";
+import Project2 from "@/assets/cudi.png";
+import Project3 from "@/assets/litebuilder.png";
+import Project4 from "@/assets/leif.png";
+
+import GitHub from "@/components/svg/github.astro";
+import LinkedIn from "@/components/svg/linkedin.astro";
+import Badge from "@/components/badge.astro";
+
+const social = [
+  {
+    icon: GitHub,
+    name: "GitHub",
+    url: "https://github.com/Gabo-div",
+  },
+  {
+    icon: LinkedIn,
+    name: "LinkedIn",
+    url: "https://www.linkedin.com/in/gabriel-h-valles/",
+  },
+];
+
+const education = [
+  {
+    date: "2021 - 2026*",
+    company: "Universidad Nacional Experimental de Guayana",
+    position: "Ingeniería en Informática",
+    description:
+      "Actualmente estoy cursando la carrera de Ingeniería en Informática en la Universidad Nacional Experimental de Guayana. Estoy en el septimo semestre de la carrera y espero graduarme en 2026.",
+  },
+];
+
+const projects = [
+  {
+    image: Project1,
+    title:
+      "Cliente Alternativo para el Sistema Estudiantil de la Universidad Nacional Experimental de Guayana",
+    description:
+      "Desarrollé un cliente alternativo no oficial para el sistema estudiantil de la Universidad Nacional Experimental de Guayana (UNEG), con el objetivo de proporcionar una experiencia de usuario superior a la plataforma oficial. Este proyecto surgió de la necesidad de simplificar y agilizar el acceso a información académica clave para los estudiantes, como asignaturas, calificaciones y datos de profesores. Utilicé técnicas de web scraping para extraer datos de la página oficial de la UNEG, garantizando la precisión y actualidad de la información mostrada.",
+    tags: ["TypeScript", "React", "TailwindCSS", "Tanstack Router", "Cheerio"],
+  },
+  {
+    image: Project2,
+    title: "Sistema Web de Gestión de Eventos para CUDI",
+    description:
+      "Desarrollé un sistema web integral para la promoción y gestión de eventos de CUDI (Comunidad Universitaria Desarrollo e Innovación), una iniciativa de servicio comunitario dedicada a fomentar la cultura del desarrollo de software en la Universidad, mediante la creación de una plataforma web completa que permite la creación, promoción y gestión de eventos y talleres, implementando un sistema de registro e inscripción, así como la generación y validación de certificados digitales de participación, optimizando así la gestión de eventos y mejorando la experiencia de los estudiantes.",
+    tags: [
+      "TypeScript",
+      "Next.js",
+      "TailwindCSS",
+      "Drizzle ORM",
+      "SQLite",
+      "Turso",
+    ],
+  },
+  {
+    image: Project3,
+    title: "Aplicación Web para la creación de diagramas MER",
+    description:
+      "Aplicación web para la creación de diagramas MER (Modelo Entidad Relación) de forma sencilla y rápida. Esta aplicación web permite a los usuarios crear diagramas MER de forma visual y exportarlos en formato imagen o JSON. También cuenta con un modo de colaboración en tiempo real por medio de WebRTC (Por ahora solo Read-Only). Esta aplicación fue creada con el objetivo de facilitar la creación de diagramas MER para estudiantes de bases de datos.",
+    tags: [
+      "TypeScript",
+      "Next.js",
+      "TailwindCSS",
+      "Zustand",
+      "WebRTC",
+      "React Flow",
+    ],
+  },
+  {
+    image: Project4,
+    title:
+      "Aplicación Móvil Multiplataforma de Reseñas de Lugares en Ciudad Guayana",
+    description:
+      "Desarrollé una aplicación móvil multiplataforma para la reseña de lugares en Ciudad Guayana, Venezuela, permitiendo a los usuarios registrarse, reseñar y explorar lugares de la ciudad a través de las opiniones de otros usuarios. Este proyecto fue concebido como el proyecto final de la asignatura de Ingeniería de Software, durante el cual lideré un equipo de 20 personas, organizados en tres equipos de trabajo: análisis, frontend y backend. Mi rol abarcó la dirección técnica, así como la contribución directa en tareas clave de frontend y algunas de backend.",
+    tags: [
+      "TypeScript",
+      "React Native",
+      "Expo",
+      "Tamagui",
+      "GO",
+      "SQLite",
+      "Turso",
+    ],
+  },
+];
+---
+
+<Layout>
+  <div
+    class="-z-1 absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"
+  >
+  </div>
+  <svg
+    class="pointer-events-none fixed isolate z-50 opacity-70 mix-blend-soft-light"
+    width="100%"
+    height="100%"
+    ><filter id="noise"
+      ><feTurbulence
+        type="fractalNoise"
+        baseFrequency="0.80"
+        numOctaves="4"
+        stitchTiles="stitch"></feTurbulence></filter
+    ><rect width="100%" height="100%" filter="url(#noise)"></rect></svg
+  >
+  <nav class="fixed w-full p-4 z-1">
+    <div
+      class="container mx-auto max-w-4xl flex h-12 items-center justify-center overflow-hidden rounded-full border border-zinc-800 bg-zinc-900 gap-1"
+    >
+      <a
+        href="#home"
+        class="flex h-full flex-1 items-center justify-center px-4 text-sm text-zinc-400 hover:bg-zinc-800/60 md:text-base"
+      >
+        Inicio
+      </a>
+      <a
+        href="#education"
+        class="flex h-full flex-1 items-center justify-center px-4 text-sm text-zinc-400 hover:bg-zinc-800/60 md:text-base"
+      >
+        Educación
+      </a>
+      <a
+        href="#projects"
+        class="flex h-full flex-1 items-center justify-center px-4 text-sm text-zinc-400 hover:bg-zinc-800/60 md:text-base"
+      >
+        Proyectos
+      </a>
+    </div>
+  </nav>
+
+  <main class="container mx-auto max-w-4xl px-4 py-8 flex flex-col">
+    <section
+      id="home"
+      class="flex flex-col items-center gap-8 py-30 mt-10 md:flex-row"
+    >
+      <div class="flex flex-col space-y-6">
+        <h1 class="font-bold text-4xl text-center md:text-left">
+          Gabriel Hernández
+        </h1>
+        <p
+          class="leading-relaxed text-zinc-400 text-lg text-center md:text-left"
+        >
+          Desarrollador web full-stack de Venezuela. Amante de JavaScript.
+          Siempre estoy buscando nuevos desafíos para ampliar mis habilidades y
+          contribuir a proyectos significativos, especialmente aquellos que
+          benefician a la comunidad.
+        </p>
+        <div class="w-full flex gap-2 justify-center md:justify-start">
+          {
+            social.map((s) => (
+              <a
+                class="bg-zinc-900/80 font-bold rounded-full px-4 py-1 border border-zinc-800 hover:bg-zinc-800 transition-colors flex items-center gap-2"
+                href={s.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <s.icon class="size-4 fill-white" />
+                {s.name}
+              </a>
+            ))
+          }
+        </div>
+      </div>
+
+      <div class="order-first md:order-none">
+        <div class="relative size-[200px] rounded-full overflow-hidden">
+          <Image
+            src={Avatar}
+            alt="Gabriel Hernández"
+            width={300}
+            class="absolute w-full h-full scale-110"
+            loading="eager"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section id="education" class="pt-30">
+      <div class="bg-zinc-900 rounded-2xl p-8 border border-zinc-800">
+        <h2 class="text-2xl font-bold mb-4">Educación</h2>
+        {
+          education.map((e) => (
+            <article class="border-l-2 border-zinc-700 relative p-4">
+              <div class="flex items-center gap-4 absolute -left-[7px]">
+                <div class="size-3 rounded-full bg-zinc-700" />
+                <span class="text-sm text-zinc-400">{e.date}</span>
+              </div>
+
+              <div class="pt-8">
+                <h3 class="font-bold text-lg">{e.company}</h3>
+                <h4 class="text-zinc-300 mb-2">{e.position}</h4>
+                <p class="text-zinc-400">{e.description}</p>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section id="projects" class="pt-30">
+      <h2 class="text-2xl font-bold mb-4">Proyectos</h2>
+      <div class="flex flex-col space-y-8">
+        {
+          projects.map((p) => (
+            <article class="bg-zinc-900 rounded-2xl border border-zinc-800 flex flex-col overflow-hidden">
+              <div class="w-full aspect-video bg-zinc-800">
+                <Image src={p.image} alt={p.title} />
+              </div>
+              <div class="flex flex-col p-8 space-y-4">
+                <h3 class="font-bold text-lg uppercase">{p.title}</h3>
+                <p class="text-zinc-400">{p.description}</p>
+                <div class="flex gap-2 flex-wrap">
+                  {p.tags.map((tag) => (
+                    <Badge>{tag}</Badge>
+                  ))}
+                </div>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+    <p class="text-zinc-400 pt-30">Hecho con ♥ por Gabriel Hernández</p>
+  </main>
+</Layout>
